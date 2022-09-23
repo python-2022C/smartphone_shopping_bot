@@ -1,4 +1,3 @@
-from math import inf
 import telegram
 from telegram.ext import Updater,MessageHandler,Filters,CallbackContext,CommandHandler,InlineQueryHandler
 from telegram import Update,ReplyKeyboardMarkup,KeyboardButton
@@ -35,7 +34,6 @@ class Mobil_bot:
 
 
     def pone_name(self, update:Update, context:CallbackContext):
-        id = update.message.from_user.id
         text = update.message.text
 
         if text == 'ortga qaytish⏪':
@@ -49,7 +47,6 @@ class Mobil_bot:
 
     def pone_imag(self, update:Update, context:CallbackContext, name):
         id = update.message.from_user.id
-        text = update.message.text
 
         imeg = self.db.mobile_imeg(name)
         pone_name = self.db.mobol_info(name)['name']
