@@ -1,8 +1,11 @@
 {
     "Mobile":{
         "1":{
-            "name":"Samsung Galaxy M10 (Ocean Blue, 3+32GB)",
+            "name":"Samsung Galaxy M10",
             "company":"Samsung",
+            "color": "Ocean Blue",
+            "RAM": "3GB",
+            "memory": "32GB"
             "price":799.0,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/613Os2k0a2L._SL1500_.jpg"
         },
