@@ -1,0 +1,103 @@
+{
+    "Huawei":{
+        "1":{
+            "name":"Huawei Y9 2019",
+            "company":"Huawei",
+            "color": "Sapphire Blue",
+            "RAM": "4GB",
+            "memory": "64GB",
+            "price":1123.5,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/613X%2BfUFr1L._SL1000_.jpg"
+        },
+        "2":{
+            "name":"Huawei Y9 2019",
+            "company":"Huawei",
+            "color": "Black",
+            "RAM": "4GB",
+            "memory": "64GB",
+            "price":1248.9,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/5164uq3MCVL._SL1000_.jpg"
+        },
+        "3":{
+            "name":"Huawei P30 Lite",
+            "company":"Huawei",
+            "color": "Midnight Black",
+            "RAM": "4GB",
+            "memory": "128GB",
+            "price":1943.5,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/61SDSA5LtqL._SL1000_.jpg"
+        },
+        "4":{
+            "name":"Huawei P30 Lite",
+            "company":"Huawei",
+            "color": "Peacock Blue",
+            "RAM": "4GB",
+            "memory": "128GB",
+            "price":1336.3,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/61I1%2BybyOVL._SL1000_.jpg"
+        },
+        "5":{
+            "name":"Huawei Nova 3i",
+            "company":"Huawei",
+            "color": "Black",
+            "RAM": "4GB",
+            "memory": "128GB",
+            "price":1758.0,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/81e53Kjj6uL._SL1500_.jpg"
+        },
+        "6":{
+            "name":"Huawei P30 Pro",
+            "company":"Huawei",
+            "color": "Breathing Crystal",
+            "RAM": "8GB",
+            "memory": "256GB",
+            "price":1730.9,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/51bIGWynl4L._SL1000_.jpg"
+        },
+        "7":{
+            "name":"HUAWEI MediaPad T5 Tablet",
+            "company":"Huawei",
+            "color": "Black",
+            "RAM": "3GB",
+            "memory": "32GB",
+            "price":840.9,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/61rcbDNXAaL._SL1000_.jpg"
+        },
+        "8":{
+            "name":"HUAWEI MediaPad T5 Tablet",
+            "company":"Huawei",
+            "color": "Black",
+            "RAM": "4GB",
+            "memory": "32GB",
+            "price":1716.5,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/61rcbDNXAaL._SL1000_.jpg"
+        },
+        "9":{
+            "name":"Huawei Mate 20 Pro",
+            "company":"Huawei",
+            "color": "Ocean Blue",
+            "RAM": "6GB",
+            "memory": "128GB",
+            "price":6499.0,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/61uoA87b4mL._SL1000_.jpg"
+        },
+        "10":{
+            "name":"Huawei CP60",
+            "company":"Huawei",
+            "color": "White",
+            "RAM": "3GB",
+            "memory": "32GB",
+            "price":399.9,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/41tsqea7kLL._SL1000_.jpg"
+        },
+        "11":{
+            "name":"Huawei CP60",
+            "company":"Huawei",
+            "color": "White",
+            "RAM": "3GB",
+            "memory": "32GB",
+            "price":399.9,
+            "img_url":"https://images-na.ssl-images-amazon.com/images/I/41tsqea7kLL._SL1000_.jpg"
+        }
+    }
+}
