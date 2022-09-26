@@ -1,67 +1,46 @@
+from msilib import datasizemask
+from pprint import pprint
+from unittest import mock
 from tinydb import TinyDB,Query
 
 class DB:
     def __init__(self, filename:str) -> None:
-        self.filename = filename
+        self.db = TinyDB(filename)
+        self.query = Query()
+        self.table = None
+        self.mobel = None
 
-    def companies(self) -> list:
-        query = Query()
-        db = TinyDB(self.filename)
-        db.default_table_name = 'Mobile'
+    def company(self, company:str) -> list:
+        self.db.default_table_name = company
+        self.table = company
+        mobil_company = self.db.search(self.query.company.search(company))
+        return mobil_company
 
-        companies = []
-        for i in  db.search(query.company.search('')):
-            if i["company"] not in companies:
-                companies.append(i["company"])
-        return companies
-
-    def company_mobile(self, company:str) -> list:
-        query = Query()
-        db = TinyDB(self.filename)
-        db.default_table_name = 'Mobile'
-
-        data_mobile = db.search(query.company == company)
-        return data_mobile
-
-
-    def company_mobile_name(self, company:str) -> list:
-        query = Query()
-        db = TinyDB(self.filename)
-        db.default_table_name = 'Mobile'
-
-        data_mobile = db.search(query.company == company)
+    def company_name(self, company:str) -> list:
+        self.db.default_table_name = company
+        self.table = company
+        mobil_company = self.db.search(self.query.company.search(company))
         mobil_name = []
-        for i in data_mobile:
+        for i in mobil_company:
             if i['name'] not in mobil_name:
                 mobil_name.append(i['name'])
+
         return mobil_name
 
+    def company_mobil(self, mobil:str) -> dict:
+        self.db.default_table_name = self.table
+        self.mobel = mobil
+        data = self.db.search(self.query.name.search(mobil))
+        return data
 
-    def pone_name(self) ->list:
-        query = Query()
-        db = TinyDB(self.filename)
-        db.default_table_name = 'Mobile'
+    def company_mobil_imeg(self, mobil_name:str) -> list:
+        self.db.default_table_name = self.table
+        data = self.db.search((self.query.name == mobil_name))
+        return data
 
-        pone_name = db.search(query.name.search(''))
-        pone_name_list = []
-        for i in pone_name:
-            if i['name'] not in pone_name_list:
-                pone_name_list.append(i['name'])
-        return pone_name_list
 
-    def mobile_imeg(self, mobile_name:str) -> str:
-        query = Query()
-        db = TinyDB(self.filename)
-        db.default_table_name = 'Mobile'
 
-        image = db.search(query.name == mobile_name)
-        img_url = image[0]['img_url']
-        return img_url
-
-    def mobol_info(self, mobile_name:str) -> dict:
-        query = Query()
-        db = TinyDB(self.filename)
-        db.default_table_name = 'Mobile'
-
-        data_mobil = db.search(query.name == mobile_name)[0]
-        return data_mobil
+# x = DB('db.json')
+# pprint(x.companys('Apple'))
+# x.company_mobil('Apple iPhone XR')
+# pprint(x.company_mobil_price(1644.2))

@@ -244,7 +244,7 @@
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/51Gggt-m0LL._SL1000_.jpg"
         },
         "28":{
-            "name":"Apple iPhone Xs (512GB) - Silver",
+            "name":"Apple iPhone Xs",
             "company":"Apple",
             "color": "Silver",
             "RAM": "6GB",
@@ -383,7 +383,7 @@
             "RAM":"8GB"
         },
         "3":{
-            "name":"nokia 5.1 Copper",
+            "name":"Nokia 5.1 Copper",
             "company":"Nokia",
             "price":749.9,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/61HTOI74SNL._SL1240_.jpg",
@@ -1919,7 +1919,7 @@
             "memory":"128GB Storage with No Cost EMI/Additional Exchange Offers"
         },
         "62":{
-            "name":"Samsung Galaxy Tab A 2017 SM-T385NZDAINS Tablet",
+            "name":"Samsung Galaxy Tab A",
             "company":"Samsung",
             "price":1410.4,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/71g4rGJKBTL._SL1500_.jpg",
@@ -1964,7 +1964,7 @@
             "memory":"64GB Storage with Offers"
         },
         "67":{
-            "name":"Samsung Galaxy S10 Plus Ceramic White, 12GB RAM, 1TB Storage",
+            "name":"Samsung Galaxy S10 Plus",
             "company":"Samsung",
             "price":11790.0,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/61LFYmFlLuL._SL1500_.jpg",
@@ -1973,7 +1973,7 @@
             "memory":"64GB"
         },
         "68":{
-            "name":"Samsung U Flex Bluetooth In-ear Flexible Headphones with Microphone",
+            "name":"Samsung U Flex",
             "company":"Samsung",
             "price":343.8,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/61liSwdU%2BNL._SL1500_.jpg",
@@ -1991,7 +1991,7 @@
             "memory":"32GB Storage"
         },
         "70":{
-            "name":"Samsung Galaxy S8 G950FD 64GB DUAL SIM Unlocked",
+            "name":"Samsung Galaxy S8",
             "company":"Samsung",
             "price":987.6,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/61p06cO0CPL._SL1280_.jpg",
@@ -2000,7 +2000,7 @@
             "memory":"64GB"
         },
         "71":{
-            "name":"Samsung Galaxy SM-R170NZKAINU Bluetooth Ear Buds",
+            "name":"Samsung Galaxy SM-R170NZKAINU",
             "company":"Samsung",
             "price":998.9,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/71br76%2BP1TL._SL1500_.jpg",
@@ -2009,7 +2009,7 @@
             "memory":"64GB"
         },
         "72":{
-            "name":"Samsung Galaxy S4 Flip Cover Folio Case",
+            "name":"Samsung Galaxy S4",
             "company":"Samsung",
             "price":1691.5,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/81G8mo8CmML._SL1500_.jpg",
@@ -2036,7 +2036,7 @@
             "memory":"128GB Storage with No Cost EMI/Additional Exchange Offers"
         },
         "75":{
-            "name":"Samsung S-View Flip Cover for Samsung Galaxy S 6 Edge",
+            "name":"Samsung Galaxy S6 Edge",
             "company":"Samsung",
             "price":374.4,
             "img_url":"https://images-na.ssl-images-amazon.com/images/I/71vCXWeBX-L._SL1500_.jpg",
