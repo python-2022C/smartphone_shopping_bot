@@ -2,8 +2,9 @@ import queue
 from telegram.ext import Updater,MessageHandler,Filters,CallbackContext,CommandHandler,InlineQueryHandler,CallbackQueryHandler
 from telegram import Update,ReplyKeyboardMarkup,KeyboardButton,InlineKeyboardMarkup,InlineKeyboardButton
 import db
+import os
 
-TOKEN = '5567524975:AAHzn2G8Ws6IgE_XRjuW3LTGv2eUtsiXL8E'
+TOKEN = os.environ['TOKEN']
 
 class Mobil_bot:
     def __init__(self) -> None:
