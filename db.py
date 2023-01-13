@@ -1,4 +1,3 @@
-from msilib import datasizemask
 from pprint import pprint
 from unittest import mock
 from tinydb import TinyDB,Query
@@ -16,16 +15,15 @@ class DB:
         mobil_company = self.db.search(self.query.company.search(company))
         return mobil_company
 
-    def company_name(self, company:str) -> list:
+    def company_name(self, company:str, index:int) -> list:
         self.db.default_table_name = company
         self.table = company
         mobil_company = self.db.search(self.query.company.search(company))
         mobil_name = []
-        for i in mobil_company:
-            if i['name'] not in mobil_name:
-                mobil_name.append(i['name'])
+        if mobil_company[index]['name'] not in mobil_name:
+            mobil_name.append(mobil_company[index]['name'])
 
-        return mobil_name
+        return mobil_name, len(mobil_company)
 
     def company_mobil(self, mobil:str) -> dict:
         self.db.default_table_name = self.table

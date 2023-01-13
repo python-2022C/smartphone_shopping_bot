@@ -3,11 +3,12 @@ from telegram.ext import Updater,MessageHandler,Filters,CallbackContext,CommandH
 from telegram import Update,ReplyKeyboardMarkup,KeyboardButton,InlineKeyboardMarkup,InlineKeyboardButton
 import db
 
-TOKEN = '5100473241:AAHvJxj6Ccvn3mL8Xivvdqj6nOyV-n_xSk4'
+TOKEN = '5567524975:AAHzn2G8Ws6IgE_XRjuW3LTGv2eUtsiXL8E'
 
 class Mobil_bot:
     def __init__(self) -> None:
         self.db = db.DB("db.json")
+        self.index_list = 0
 
     def start_inlinebutton(self, update:Update, context:CallbackContext):
         inlineKeyboard1  = InlineKeyboardButton('1', callback_data=f'📱Apple')
@@ -33,24 +34,29 @@ class Mobil_bot:
 
     def quere_start(self, update:Update, context:CallbackContext, x = 1,company=None):
         quere = update.callback_query
+        index = self.index_list
 
         if company == None:
             mobil = quere.data[1:]
         
-        inline_list = []
-        inline_str = 'Qidirgan madilingizni tanlang\n\n'
-        n = 1
-        for i in self.db.company_name(mobil):
-            if n <= 5:
-                inline_str += f'{n}.{i},\n'
-                inline_list.append([InlineKeyboardButton(f'{n}', callback_data=f'📲{i}')])
-            n += 1
-        inline_str += f'                                    ⏪{n}/{x}⏩'
-        inline_list.append([InlineKeyboardButton(f'ortga⏪', callback_data=f'⏪'),InlineKeyboardButton(f'yopish❌', callback_data=f'❌'), InlineKeyboardButton(f'oldinga⏩', callback_data=f'⏩')])
-        reply_markup = InlineKeyboardMarkup(inline_list)
+            inline_list = []
+            inline_str = 'Qidirgan madilingizni tanlang\n\n'
+            n = 1
+            all_index = self.db.company_name(mobil, self.index_list)[1]
+            for i in self.db.company_name(mobil, self.index_list)[0]:
+                if n <= 5:
+                    inline_str += f'{n}.{i},\n'
+                    inline_list.append([InlineKeyboardButton(f'{n}', callback_data=f'📲{i}')])
+                n += 1
+            inline_str += f'                                    ⏪{all_index-1}/{index+1}⏩'
+            inline_list.append([
+                InlineKeyboardButton(f'ortga⏪', callback_data=f'⏪_{mobil}_{x}_{company}'),
+                InlineKeyboardButton(f'yopish❌', callback_data=f'❌'), 
+                InlineKeyboardButton(f'oldinga⏩', callback_data=f'⏩_{mobil}_{x}_{company}')])
+            reply_markup = InlineKeyboardMarkup(inline_list)
 
-        quere.edit_message_text(inline_str)
-        quere.edit_message_reply_markup(reply_markup = reply_markup)
+            quere.edit_message_text(inline_str)
+            quere.edit_message_reply_markup(reply_markup = reply_markup)
 
     def quere_exit(self, update:Update, context:CallbackContext):
         quere = update.callback_query
@@ -98,9 +104,75 @@ class Mobil_bot:
 
     def quere_back(self, update:Update, context:CallbackContext):
         quere = update.callback_query
+        data = quere.data.split("_")
+        company = data[-1]
+        mobil = data[1]
+        x = data[2]
+
+        self.index_list = self.index_list -1
+        index = self.index_list
+        
+        inline_list = []
+        inline_str = 'Qidirgan madilingizni tanlang\n\n'
+        n = 1
+        all_index = self.db.company_name(mobil, self.index_list)[1]
+
+        if all_index-1 > index:
+            index = index
+        elif all_index-1 <= index:
+            self.index_list = 0
+            index = self.index_list
+
+        for i in self.db.company_name(mobil, index)[0]:
+            if n <= 5:
+                inline_str += f'{n}.{i},\n'
+                inline_list.append([InlineKeyboardButton(f'{n}', callback_data=f'📲{i}')])
+            n += 1
+        inline_str += f'                                    ⏪{all_index-1}/{abs(index+1)}⏩'
+        inline_list.append([
+            InlineKeyboardButton(f'ortga⏪', callback_data=f'⏪_{mobil}_{x}_{company}'),
+            InlineKeyboardButton(f'yopish❌', callback_data=f'❌'), 
+            InlineKeyboardButton(f'oldinga⏩', callback_data=f'⏩_{mobil}_{x}_{company}')])
+        reply_markup = InlineKeyboardMarkup(inline_list)
+
+        quere.edit_message_text(inline_str)
+        quere.edit_message_reply_markup(reply_markup = reply_markup)
 
     def quere_forward(self, update:Update, context:CallbackContext):
         quere = update.callback_query
+        data = quere.data.split("_")
+        company = data[-1]
+        mobil = data[1]
+        x = data[2]
+
+        self.index_list = self.index_list + 1
+        index = self.index_list
+
+        inline_list = []
+        inline_str = 'Qidirgan madilingizni tanlang\n\n'
+
+        n = 1
+        all_index = self.db.company_name(mobil, self.index_list)[1]
+        if all_index-1 > index:
+            index = index
+        elif all_index-1 <= index:
+            self.index_list = 0
+            index = self.index_list
+
+        for i in self.db.company_name(mobil,index)[0]:
+            if n <= 5:
+                inline_str += f'{n}.{i},\n'
+                inline_list.append([InlineKeyboardButton(f'{n}', callback_data=f'📲{i}')])
+            n += 1
+        inline_str += f'                                    ⏪{all_index-1}/{abs(index+1)}⏩'
+        inline_list.append([
+            InlineKeyboardButton(f'ortga⏪', callback_data=f'⏪_{mobil}_{x}_{company}'),
+            InlineKeyboardButton(f'yopish❌', callback_data=f'❌'), 
+            InlineKeyboardButton(f'oldinga⏩', callback_data=f'⏩_{mobil}_{x}_{company}')])
+        reply_markup = InlineKeyboardMarkup(inline_list)
+
+        quere.edit_message_text(inline_str)
+        quere.edit_message_reply_markup(reply_markup = reply_markup)
 
 mobil_bot = Mobil_bot()
 updater = Updater(TOKEN)
