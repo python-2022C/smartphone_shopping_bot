@@ -31,6 +31,13 @@ class Mobil_bot:
         reply_markup = self.start_inlinebutton(update,context)
         buttom_str = self.start_inlinebutton_text(update,context)
         updater.bot.sendMessage(id, buttom_str, reply_markup = reply_markup)
+    def quere_start1(self, update:Update, context:CallbackContext):
+        quer = update.callback_query
+        quer.edit_message_caption(caption=None, reply_markup=None)
+        id =  quer.message.chat_id
+        reply_markup = self.start_inlinebutton(update,context)
+        buttom_str = self.start_inlinebutton_text(update,context)
+        updater.bot.sendMessage(id, buttom_str, reply_markup = reply_markup)
 
     def quere_start(self, update:Update, context:CallbackContext, x = 1,company=None):
         quere = update.callback_query
@@ -82,25 +89,6 @@ class Mobil_bot:
         quere.message.reply_photo(img_url,caption=text,reply_markup=reply_markup)
         quere.edit_message_reply_markup(reply_markup=None)
         quere.edit_message_text(text='So\'ragan modilingiz surati 🖼')
-
-    def quere_imeg_exit(self, update:Update, context:CallbackContext, x = 1):
-        quere = update.callback_query
-        quere.edit_message_caption(caption=None, reply_markup=None)
-        
-        mobil = quere.data[1:]
-        inline_list = []
-        inline_str = 'Qidirgan madilingizni tanlang\n\n'
-        n = 1
-        for i in self.db.company_name(mobil):
-            if n <= 5:
-                inline_str += f'{n}.{i},\n'
-                inline_list.append([InlineKeyboardButton(f'{n}', callback_data=f'📲{i}')])
-            n += 1
-        inline_str += f'                                    ⏪{n}/{x}⏩'
-        inline_list.append([InlineKeyboardButton(f'ortga⏪', callback_data=f'⏪'),InlineKeyboardButton(f'yopish❌', callback_data=f'❌'), InlineKeyboardButton(f'oldinga⏩', callback_data=f'⏩')])
-        reply_markup = InlineKeyboardMarkup(inline_list)
-
-        updater.bot.sendMessage(quere.from_user.id, inline_str, reply_markup=reply_markup)
 
     def quere_back(self, update:Update, context:CallbackContext):
         quere = update.callback_query
@@ -179,7 +167,7 @@ updater = Updater(TOKEN)
 updater.dispatcher.add_handler(CommandHandler('start', mobil_bot.start))
 updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_start, pattern='📱'))
 updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_exit, pattern='❌'))
-updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_imeg_exit, pattern='🚫'))
+updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_start1, pattern='🚫'))
 updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_back, pattern='⏪'))
 updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_forward, pattern='⏩'))
 updater.dispatcher.add_handler(CallbackQueryHandler(mobil_bot.quere_imeg ,pattern='📲'))
