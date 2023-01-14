@@ -1,4 +1,3 @@
-import queue
 from telegram.ext import Updater,MessageHandler,Filters,CallbackContext,CommandHandler,InlineQueryHandler,CallbackQueryHandler
 from telegram import Update,ReplyKeyboardMarkup,KeyboardButton,InlineKeyboardMarkup,InlineKeyboardButton
 import db
@@ -19,7 +18,10 @@ class Mobil_bot:
         inlineKeyboard5  = InlineKeyboardButton('5', callback_data=f'📱Redmi')
         inlineKeyboard6  = InlineKeyboardButton('6', callback_data=f'📱Samsung')
         inlineKeyboard7  = InlineKeyboardButton('7', callback_data=f'📱Vivo')
-        inline_keyboard = [[inlineKeyboard1,inlineKeyboard2,inlineKeyboard3,inlineKeyboard4], [inlineKeyboard5,inlineKeyboard6,inlineKeyboard7]]
+        inline_keyboard = [
+            [inlineKeyboard1,inlineKeyboard2,inlineKeyboard3,inlineKeyboard4], 
+            [inlineKeyboard5,inlineKeyboard6,inlineKeyboard7]
+            ]
         reply_markup = InlineKeyboardMarkup(inline_keyboard)
         return reply_markup
 

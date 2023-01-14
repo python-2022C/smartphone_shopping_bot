@@ -1,5 +1,4 @@
 from pprint import pprint
-from unittest import mock
 from tinydb import TinyDB,Query
 
 class DB:
@@ -35,10 +34,3 @@ class DB:
         self.db.default_table_name = self.table
         data = self.db.search((self.query.name == mobil_name))
         return data
-
-
-
-# x = DB('db.json')
-# pprint(x.companys('Apple'))
-# x.company_mobil('Apple iPhone XR')
-# pprint(x.company_mobil_price(1644.2))
