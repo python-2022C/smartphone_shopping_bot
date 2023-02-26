@@ -31,7 +31,7 @@ def add(field, n):
 
 def subtract(field, n):
     """
-    Subtract ``n`` to a given field in the document.
+    Substract ``n`` to a given field in the document.
     """
     def transform(doc):
         doc[field] -= n
